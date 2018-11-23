@@ -14,13 +14,13 @@
 
   <body>
     <div class="navbar-wagon">
-      <%= link_to "MrCocktail", cocktails_path %>
+      <%= link_to "Wagon Cocktail", cocktails_path %>
       <%= link_to "add an Ingredient", new_ingredient_path %>
     </div>
-    <div class="container">
+
       <%= yield %>
 
-    </div>
+
     <%= javascript_include_tag "application" %>
     <%= javascript_pack_tag "application" %>
   </body>

@@ -1,0 +1,18 @@
+<div style="display: flex; align-items: center;">
+  <h1><%= @cocktail.name %></h1>
+  <div>
+
+    <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_cocktail_path(@cocktail) %>
+    <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, cocktail_path(@cocktail),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
+  <%= link_to "add a dose for this cocktail", new_cocktail_dose_path(@cocktail)  %>
+<div>
+   <ul>
+     <% @cocktail.doses.each do |dose| %>
+        <li><%= dose.description %>, <%= dose.ingredient.name %></li>
+     <% end %>
+   </ul>
+</div>

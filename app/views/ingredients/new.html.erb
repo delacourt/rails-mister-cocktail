@@ -1,0 +1,9 @@
+<h1>Add an Ingredient</h1>
+
+<div>
+    <%= simple_form_for @ingredient do |f| %>
+      <%= f.input :name %>
+
+      <%= f.submit "Create Ingredient", class: "btn btn-light" %>
+    <% end %>
+  </div>

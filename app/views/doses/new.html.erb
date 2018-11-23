@@ -1,0 +1,13 @@
+<h1>New dose for <%= @cocktail.name %></h1>
+
+<div>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.hidden_field :dose, value: @dose %>
+      <%= f.input :description %>
+      <%= f.association :ingredient %>
+      <%= link_to "your ingredient isn't in the list ? Add it !", new_ingredient_path, class: "btn btn-dark" %>
+
+
+      <%= f.submit "Add dose", class: "btn btn-light" %>
+    <% end %>
+</div>

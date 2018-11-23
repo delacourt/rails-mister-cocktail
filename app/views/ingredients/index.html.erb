@@ -1,0 +1,17 @@
+<h1> All Ingredients</h1>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <% @ingredients.each do |ingredient| %>
+      <div class="thumbnail">
+        <img src="https://www.cave-bruant.fr/3391-large_default/hendrick-s-gin.jpg" alt="...">
+        <div class="caption">
+          <h3><%= ingredient.name %></h3>
+          <p>...</p>
+          <p><%= link_to 'destroy ingredient', ingredient_path(ingredient), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary'  %> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>

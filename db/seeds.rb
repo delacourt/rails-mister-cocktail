@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+require 'open-uri'
+require 'json'
+Cocktail.destroy_all
+Ingredient.destroy_all
+Dose.destroy_all
+
+26.times do
+  cocktail = Cocktail.new(name: "#{Faker::Color.color_name.capitalize} #{Faker::Pokemon.name}")
+  cocktail.save!
+end
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+word = open(url).read
+h = JSON.parse(word)
+
+h.each do |_k, v|
+  v.each do |ash|
+    ash.each do |_key, value|
+      Ingredient.create(name: value)
+    end
+  end
+end
